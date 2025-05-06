@@ -1,0 +1,213 @@
+/* ===================
+    GLOBAL VARIABLES
+====================== */
+:root {
+  --bg-image: url("assets/bubble_cloud.avif");
+  --font-family: "Montserrat", "sans-serif";
+
+  /* colors standard */
+  --main-bg: rgb(249, 250, 188);
+  --accent: rgb(255, 221, 127);
+  --font-color: #000;
+
+  /* btn standard */
+  --btn-bg: #742d20;
+  --btn-text: var(--accent);
+  --btn-hover: #943c2d;
+
+  /* border & box */
+  --box-radius: 15px;
+  --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  /* spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+}
+
+/* ===================
+    BASE STYLES
+====================== */
+
+body {
+  font-family: "Montserrat", "sans-serrif";
+  color: var(--font-color);
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* ===================
+    CONTAINER
+====================== */
+
+.container {
+  width: 400px;
+  padding: 2rem 4rem;
+  background-color: var(--main-bg);
+  border: 2px solid var(--accent);
+  border-radius: var(--box-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.container h1 {
+  font-weight: lighter;
+  font-size: var(--spacing-lg);
+  font-family: var(--font-family);
+  margin-bottom: var(--spacing-md);
+  transition: transform 0.3s ease;
+}
+
+.container h1:hover {
+  animation: wiggle 0.5s ease;
+}
+
+/* ====================
+    TIMER DISPLAY
+=======================*/
+
+.timer {
+  font-weight: lighter;
+  font-size: var(--spacing-lg);
+  margin: var(--spacing-md) auto;
+  transition: transform 0.3s ease;
+}
+
+.timer.wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+.time-input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.time-input input {
+  font-family: var(--font-family);
+  width: 60px;
+  padding: 0.3rem;
+  background: none;
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+}
+
+/*======================
+  IMAGE DISPLAY
+========================*/
+
+.container img {
+  min-width: 100%;
+  height: auto;
+  margin: var(--spacing-md) 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/*======================
+  BUTTONS
+========================*/
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: nowrap;
+}
+button {
+  font-size: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: var(--spacing-sm);
+  border: 2px solid var(--accent);
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--btn-bg);
+  color: var(--accent);
+  box-shadow: var(--box-shadow);
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: var(--btn-hover);
+  animation: wiggle 0.5s ease;
+}
+
+/*======================
+  KEYFRAMES AND MEDIA
+========================*/
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .timer {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .container img {
+    max-width: 100%;
+    height: auto;
+  }
+}
