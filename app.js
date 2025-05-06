@@ -139,7 +139,3 @@ document.addEventListener("keydown", (e) => {
 remainingSeconds = getInputSeconds();
 updateDisplay();
 showImage(defaultImg);
-
-// bugs and issues found:
-// imgs not changing when timer is changed to rest or resume, defualt is consistent
-// timer is supposed to shake when it is complete
